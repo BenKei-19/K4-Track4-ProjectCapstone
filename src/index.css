@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0b0f14;
+  --surface: #141a22;
+  --border: #243040;
+  --text: #e6edf3;
+  --muted: #8b98a8;
+  --accent: #3ba7ff;
+  --ok: #22c55e;
+  --warn: #f5b400;
+  --danger: #ef4444;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-ok: var(--ok);
+  --color-warn: var(--warn);
+  --color-danger: var(--danger);
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+html, body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font-sans); }
+body { overflow-x: hidden; -webkit-text-size-adjust: 100%; }
+:where(button, input, select, a, [tabindex]):focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
