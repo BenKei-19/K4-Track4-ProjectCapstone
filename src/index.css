@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html, body, #root {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #030712;
+    color: #f3f4f6;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+}
+
+/* Custom ADAS HUD glow and pulse effects */
+@keyframes dangerPulse {
+  0%, 100% {
+    box-shadow: inset 0 0 60px rgba(239, 68, 68, 0.7), inset 0 0 120px rgba(239, 68, 68, 0.4);
+    border-color: rgba(239, 68, 68, 0.9);
+  }
+  50% {
+    box-shadow: inset 0 0 20px rgba(239, 68, 68, 0.2), inset 0 0 40px rgba(239, 68, 68, 0.1);
+    border-color: rgba(239, 68, 68, 0.3);
+  }
+}
+
+.danger-vignette {
+  animation: dangerPulse 0.6s infinite ease-in-out;
+}
+
+@keyframes radarSweep {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.radar-sweep-line {
+  transform-origin: bottom center;
+  animation: radarSweep 3s linear infinite;
+}
+
+/* Sci-fi ADAS Corner Brackets */
+.corner-bracket-tl {
+  border-top: 3px solid currentColor;
+  border-left: 3px solid currentColor;
+}
+.corner-bracket-tr {
+  border-top: 3px solid currentColor;
+  border-right: 3px solid currentColor;
+}
+.corner-bracket-bl {
+  border-bottom: 3px solid currentColor;
+  border-left: 3px solid currentColor;
+}
+.corner-bracket-br {
+  border-bottom: 3px solid currentColor;
+  border-right: 3px solid currentColor;
+}
+
+/* Glassmorphism custom backdrop */
+.glass-panel {
+  background: rgba(10, 15, 29, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.glass-panel-subtle {
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
